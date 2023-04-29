@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "220864841468",
+    "project_id": "calorie-guard",
+    "storage_bucket": "calorie-guard.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220864841468:android:3e1ee99c7696a29da87979",
+        "android_client_info": {
+          "package_name": "com.example.calorieguard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "220864841468-16pcbcj5kmqcjhrofs930j2unhe0h85l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-h8g2wYQyw8NVUhi1kQWfeF1tQPmkhVo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "220864841468-16pcbcj5kmqcjhrofs930j2unhe0h85l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
