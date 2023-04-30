@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                 Lweight.setText("0");
                 Gweight.setText("0");
                 HW.setTextColor(Color.BLUE);
-                HW.setText("                Have account?\n                Log In");
+                HW.setText("   Have account?\n   Log In");
                 HW.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
