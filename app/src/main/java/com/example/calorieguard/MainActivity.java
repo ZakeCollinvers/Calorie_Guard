@@ -3,14 +3,19 @@ package com.example.calorieguard;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,6 +27,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,7 +38,7 @@ import java.sql.Struct;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
-    public TextView Lweight, Gweight, CurrCal, User, result, HW;
+    public TextView Lweight, Gweight, CurrCal, User, result, HW,buttonsignout;
     public Spinner searchView;
     private DatabaseReference mDatabase;
     public final String[] fooditems = {"Brown Rice 100gm", "Roti 47gm", "Chicken Soup 100gm", "Paneer 100gm", "Roasted Chicken 100gm", "Maasur Dal 100gm", "Cholar Dal 100gm", "One Luchi", "Katla Fish(1 piece)", "Mutton Biriany(1 plate)"};
@@ -43,17 +49,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ActionBar actionBar;
-        actionBar = getSupportActionBar();
-        ColorDrawable colorDrawable
-                = new ColorDrawable(Color.parseColor("#eb4034"));
-        actionBar.setBackgroundDrawable(colorDrawable);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#eb4034")));
 
         Lweight = (TextView) findViewById(R.id.Lweight);
         Gweight = (TextView) findViewById(R.id.Gweight);
         CurrCal = (TextView) findViewById(R.id.CurrCal);
         User = (TextView) findViewById(R.id.username);
+        buttonsignout=(TextView)findViewById(R.id.buttonsignout);
         HW = (TextView) findViewById(R.id.HW);
         result = (TextView) findViewById(R.id.result);
         searchView = (Spinner) findViewById(R.id.searchView);
@@ -108,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
             mDatabase = FirebaseDatabase.getInstance("https://calorie-guard-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
 
             if (email.equals("Anonymous")) {
+                buttonsignout.setVisibility(View.GONE);
                 User.setText(email);
                 CurrCal.setText("0");
                 Lweight.setText("0");
@@ -122,6 +127,21 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             } else {
+                buttonsignout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SharedPreferences preferences = getSharedPreferences("myPrefs", MODE_PRIVATE);
+                        preferences.edit().clear().apply();
+
+                        // Sign out from Firebase Authentication
+                        FirebaseAuth.getInstance().signOut();
+
+                        // Redirect to Login Activity
+                        Intent intent = new Intent(getApplicationContext(), Login.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
                 Get_User_Data(email);
 
             }
@@ -154,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
                                 Lweight.setText(Integer.toString(curr_cal_men - 500));
                                 Gweight.setText(Integer.toString(curr_cal_men + 500));
                                 User.setText("Mr. " + name);
-                                HW.setText("Height: " + height + " Kg\nWeight: " + weight + " cm");
+                                HW.setText("Height: " + height + " cm\nWeight: " + weight + " Kg\nAge: "+age+" yr");
                             } else if (sex.equals("Female")) {
                                 int curr_cal_women = (int) Math.round(655.1 + (9.563 * Float.parseFloat(weight)) + (1.850 * Float.parseFloat(height)) - (4.676 * Float.parseFloat(age)));
                                 CurrCal.setText(Integer.toString(curr_cal_women) + " cals");

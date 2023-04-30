@@ -28,13 +28,13 @@
         android:id="@+id/imageView3"
         android:layout_width="400dp"
         android:layout_height="590dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:background="@drawable/edt_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.496"
+        app:layout_constraintVertical_bias="0.73"
         app:srcCompat="@drawable/buckground" />
 
     <TextView
@@ -98,7 +98,9 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="@+id/imageView3" />
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.744" />
 
     <TextView
         android:id="@+id/result"
@@ -125,7 +127,7 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/username"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintHorizontal_bias="0.059"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -133,27 +135,42 @@
     <TextView
         android:id="@+id/HW"
         android:layout_width="150dp"
-        android:layout_height="50dp"
+        android:layout_height="80dp"
         android:paddingStart="30dp"
         android:paddingTop="5dp"
         android:textSize="13dp"
         app:layout_constraintBottom_toTopOf="@+id/CurrCal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.247"
         app:layout_constraintStart_toStartOf="@+id/username"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.272" />
+        app:layout_constraintVertical_bias="0.506" />
 
-    <Button
+    <TextView
         android:id="@+id/buttonsignout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:paddingTop="8dp"
+        android:text="Sign Out"
+        android:textColor="@color/red"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/HW"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/username"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.576"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.524"
+        app:srcCompat="@drawable/calogo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

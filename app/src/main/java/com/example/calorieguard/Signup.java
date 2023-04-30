@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -32,7 +33,7 @@ public class Signup extends AppCompatActivity {
     public EditText name,age,height,weight,email,pass;
     public RadioGroup RG;
     public RadioButton rb;
-
+    private ProgressBar progressBar2;
     private FirebaseAuth myAuth;
     private DatabaseReference mDatabase;
 
@@ -51,6 +52,8 @@ public class Signup extends AppCompatActivity {
         email=(EditText)findViewById(id.editText2email);
         pass=(EditText)findViewById(id.editText2password);
         RG=(RadioGroup)findViewById(id.radioGroup);
+        progressBar2 = findViewById(id.progressBar2);
+        progressBar2.setVisibility(View.GONE);
 
         myAuth=FirebaseAuth.getInstance();
 
@@ -70,6 +73,7 @@ public class Signup extends AppCompatActivity {
                 {rb=findViewById(ID);
                     String sex=rb.getText().toString();
                 if(!Email.isEmpty() && !Pass.isEmpty() && !Height.isEmpty() && !Weight.isEmpty() && !Age.isEmpty() && !Name.isEmpty()){
+                    progressBar2.setVisibility(View.VISIBLE);
                 Fun_signup(Email,Pass);
                 SaveData(Name,Age,Height,Weight,Email,sex);}
                 else {
@@ -87,6 +91,7 @@ public class Signup extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        progressBar2.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
                             Toast.makeText(Signup.this, "Successfully Signed Up", Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(getApplicationContext(),MainActivity.class);
