@@ -41,7 +41,45 @@ public class MainActivity extends AppCompatActivity {
     public TextView Lweight, Gweight, CurrCal, User, result, HW,buttonsignout;
     public Spinner searchView;
     private DatabaseReference mDatabase;
-    public final String[] fooditems = {"Brown Rice 100gm", "Roti 47gm", "Chicken Soup 100gm", "Paneer 100gm", "Roasted Chicken 100gm", "Maasur Dal 100gm", "Cholar Dal 100gm", "One Luchi", "Katla Fish(1 piece)", "Mutton Biriany(1 plate)"};
+    public final String[] fooditems = {
+            "Brown Rice 100gm",
+            "Roti 47gm",
+            "Chicken Soup 100gm",
+            "Paneer 100gm",
+            "Roasted Chicken 100gm",
+            "Maasur Dal 100gm",
+            "Cholar Dal 100gm",
+            "One Luchi",
+            "Katla Fish(1 piece)",
+            "Mutton Biriany(1 plate)",
+            "Aloo Poshto",
+            "Beguni",
+            "Bhaja Muger Dal",
+            "Bhetki Fish(1 piece)",
+            "Bhapa Chingri",
+            "Chingri Malai Curry",
+            "Chitol Macher Muithya",
+            "Dhokar Dalna",
+            "Doi Fuchka",
+            "Fish Cutlet",
+            "Ghugni",
+            "Ilish Bhapa",
+            "Jhal Muri",
+            "Kachuri",
+            "Kalojam",
+            "Khoi er Shingara",
+            "Kochuri Torkari",
+            "Kolar Bora",
+            "Lau Ghonto",
+            "Luchi Aloo Dom",
+            "Mishti Doi",
+            "Murgir Jhol",
+            "Narkel Chingri",
+            "Panta Bhaat",
+            "Pati Shapta",
+            "Payesh",
+            "Phulkopir Dalna",
+            "Cholar Kofta"};
     String s;
 
     @SuppressLint("SetTextI18n")
@@ -73,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                         result.setText("116 cals");
                         break;
                     case "Roti 47gm":
-                        result.setText("116 clas");
+                        result.setText("116 cals");
                         break;
                     case "Chicken Soup 100gm":
                         result.setText("239 cals");
@@ -99,6 +137,89 @@ public class MainActivity extends AppCompatActivity {
                     case "Mutton Biriany(1 plate)":
                         result.setText("642 cals");
                         break;
+                    case "Aloo Poshto":
+                        result.setText("157 cals");
+                        break;
+                    case "Beguni":
+                        result.setText("200 cals");
+                        break;
+                    case "Bhaja Muger Dal":
+                        result.setText("188 cals");
+                        break;
+                    case "Bhetki Fish(1 piece)":
+                        result.setText("232 cals");
+                        break;
+                    case "Bhapa Chingri":
+                        result.setText("235 cals");
+                        break;
+                    case "Chingri Malai Curry":
+                        result.setText("296 cals");
+                        break;
+                    case "Chitol Macher Muithya":
+                        result.setText("324 cals");
+                        break;
+                    case "Dhokar Dalna":
+                        result.setText("187 cals");
+                        break;
+                    case "Doi Fuchka":
+                        result.setText("73 cals");
+                        break;
+                    case "Fish Cutlet":
+                        result.setText("191 cals");
+                        break;
+                    case "Ghugni":
+                        result.setText("123 cals");
+                        break;
+                    case "Ilish Bhapa":
+                        result.setText("226 cals");
+                        break;
+                    case "Jhal Muri":
+                        result.setText("144 cals");
+                        break;
+                    case "Kachuri":
+                        result.setText("155 cals");
+                        break;
+                    case "Kalojam":
+                        result.setText("400 cals");
+                        break;
+                    case "Khoi er Shingara":
+                        result.setText("98 cals");
+                        break;
+                    case "Kochuri Torkari":
+                        result.setText("261 cals");
+                        break;
+                    case "Kolar Bora":
+                        result.setText("98 cals");
+                        break;
+                    case "Lau Ghonto":
+                        result.setText("170 cals");
+                        break;
+                    case "Luchi Aloo Dom":
+                        result.setText("330 cals");
+                        break;
+                    case "Mishti Doi":
+                        result.setText("120 cals");
+                        break;
+                    case "Murgir Jhol":
+                        result.setText("291 cals");
+                        break;
+                    case "Narkel Chingri":
+                        result.setText("299 cals");
+                        break;
+                    case "Panta Bhaat":
+                        result.setText("20 cals");
+                        break;
+                    case "Pati Shapta":
+                        result.setText("144 cals");
+                        break;
+                    case "Payesh":
+                        result.setText("230 cals");
+                        break;
+                    case "Phulkopir Dalna":
+                        result.setText("194 cals");
+                        break;
+                    case "Cholar Kofta":
+                        result.setText("320 cals");
                 }
             }
 
